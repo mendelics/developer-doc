@@ -1,0 +1,24 @@
+{
+  "name": "developer-doc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docs": "hads ./docs -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendelics/developer-doc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mendelics/developer-doc/issues"
+  },
+  "homepage": "https://github.com/mendelics/developer-doc#readme",
+  "dependencies": {
+    "hads": "^3.0.0"
+  }
+}
