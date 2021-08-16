@@ -12,7 +12,7 @@ Oferecemos um script em Python contendo as etapas necessárias para apoiar a int
 
 ## Premissas Básicas
 
-Utilizamos como plataforma de envio de resultados o sistema de mensageria da Google Cloud Platform (GCP), chamado de Cloud Pub/Sub, neste documento referenciado somente como Pub/Sub. Para mais detalhes sobre o uso e funcionamento do Pub/Sub, recomendamos a leitura da documentação oficial.
+Utilizamos como plataforma de envio de resultados o sistema de mensageria da Google Cloud Platform (GCP), chamado de Cloud Pub/Sub, neste documento referenciado somente como Pub/Sub. Para mais detalhes sobre o uso e funcionamento do Pub/Sub, recomendamos a leitura da [documentação oficial](https://cloud.google.com/pubsub/docs/overview).
 
 Os resultados são enviados através de mensagens que ficam disponíveis para o recebimento no Pub/Sub por nossos parceiros.
 
@@ -44,7 +44,7 @@ Devido a limitações da ferramenta, não garantimos a unicidade da mensagem de 
 
 Cada mensagem permanece ativa no Pub/Sub durante sete dias, sendo removida automaticamente após este período.
 
-Caso seja necessário ver algum outro resultado de teste em período pregresso, recomendamos utilizar a ferramenta Corporativo da Mendelics.
+Caso seja necessário ver algum outro resultado de teste em período pregresso, recomendamos utilizar a ferramenta [Corporativo da Mendelics](https://corporativo.mendelics.com.br/).
 
 ## Detalhamento Técnico
 
@@ -94,9 +94,9 @@ Como a mensagem possui um tempo para expirar, caso seja necessário uma maior qu
 
 Configurações:
 
-* identificador do projeto: “api-mendelics-dev”
+* identificador do projeto: "api-mendelics-dev"
 * identificador do subscriber: o mesmo que para produção
-* tópico:”homolog-result”
+* tópico: "homolog-result"
 
 ### Ambiente de produção
 
@@ -104,7 +104,7 @@ Utilize estes dados para o ambiente de produção.
 
 Configurações:
 
-* identificador do projeto: “api-mendelics”
+* identificador do projeto: "api-mendelics"
 * identificador do subscriber: será recebido com este documento
 * tópico: será recebido com este documento
 
