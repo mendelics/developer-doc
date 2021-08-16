@@ -1,0 +1,2 @@
+- [Home](/pt-br/)
+- [Resultado Covid](/pt-br/resultado_covid.md)
