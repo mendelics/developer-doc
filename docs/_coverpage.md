@@ -6,7 +6,7 @@
 
 > Manual de integração de API's Mendelics.
 
-[GitHub](https://github.com/mendelics/developer)
+[GitHub](https://github.com/mendelics/developer-doc)
 [Documentação](/pt-br/)
 
 <!-- background color -->
