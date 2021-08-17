@@ -1,42 +1,43 @@
 # coding=utf-8
-
 from concurrent.futures import TimeoutError
 from google.cloud import pubsub_v1
 from inspect import getmembers, isfunction
 import json
 
-# Para rodar este script é necessário ter uma variável de ambiente chamada GOOGLE_APPLICATION_CREDENTIALS
-# Esta variável de ambiente deve ter como valor a localização do arquivo `key.json`
-
-# Trocar para api-mendelics para acessar produção
-project_id = "api-mendelics-dev"
-
-# Fornecer subscription id repassado aqui
-subscription_id = "dummy_id"
-
-timeout = 5.0
-
-subscriber = pubsub_v1.SubscriberClient()
-subscription_path = subscriber.subscription_path(project_id, subscription_id)
-
-def callback(message):
-    # Esta função recebe a mensagem repassada pela API
-    print(f"Received {message}.")
-
+# This is the callback function from the topic listener. Each received message will call this method.
+# Here you and do some work with the messages' content and ack the message.
+# Remember that when you ack a message, pub/sub will remove it from the topic.
+def do_something_with_message(message):
+    print(f"Received message: {message}.")
     print(json.loads(message.data.decode("utf-8")))
-    # A função abaixo realiza o ack da mensagem, apagando ela da queue de mensagens
-    # Verificar que a mensagem foi realmente salva localmente antes de dar ack
+
     message.ack()
 
-streaming_pull_future = subscriber.subscribe(subscription_path, callback=callback)
-print(f"Listening for messages on {subscription_path}..\n")
 
-# Wrap subscriber in a 'with' block to automatically call close() when done.
-with subscriber:
-    try:
-        # When `timeout` is not set, result() will block indefinitely,
-        # unless an exception is encountered first.
-        x = streaming_pull_future.result(timeout=timeout)
-    except TimeoutError:
-        streaming_pull_future.cancel()  # Trigger the shutdown.
-        streaming_pull_future.result()  # Block until the shutdown is complete.
+def get_messages(project_id, subscription_id):
+    timeout = 5.0
+
+    subscriber = pubsub_v1.SubscriberClient()
+    subscription_path = subscriber.subscription_path(project_id, subscription_id)
+
+    topic_listener = subscriber.subscribe(subscription_path, callback=do_something_with_message)
+    print(f"Listening for messages on {subscription_path}..\n")
+
+    # Wrap subscriber in a 'with' block to automatically call close() when done.
+    with subscriber:
+        try:
+            # When `timeout` is not set, result() will block indefinitely,
+            # unless an exception is encountered first.
+            x = topic_listener.result(timeout=5.0)
+        except TimeoutError:
+            topic_listener.cancel()  # Trigger the shutdown.
+            topic_listener.result()  # Block until the shutdown is complete.
+
+
+# When in production, use values sent by Mendelics.
+project_id = "api-mendelics-dev"
+subscription_id = "homolog-result-sub"
+
+# To run this script you must have an environment varible called GOOGLE_APPLICATION_CREDENTIALS.
+# Its value is the path to "key.json" file.
+get_messages(project_id, subscription_id)
