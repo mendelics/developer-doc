@@ -8,7 +8,7 @@ Nas seções a seguir apresentamos todos os elementos necessários para que se p
 
 Esta forma de recebimento de resultado não substitui a notificação de resultados por e-mail ou o acompanhamento através de nossos sistemas web.
 
-Oferecemos um script em **Python** contendo as etapas necessárias para apoiar a integração com o sistema. Outros exemplos, usando outras linguagens de programação, estão disponíveis na documentação do Pub/Sub.
+Oferecemos [um script em **Python**](https://github.com/mendelics/developer-doc/tree/main/examples/resultados/python) contendo as etapas necessárias para apoiar a integração com o sistema. Outros exemplos, usando outras linguagens de programação, estão disponíveis na documentação do Pub/Sub.
 
 ## Premissas Básicas
 
