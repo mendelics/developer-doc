@@ -98,7 +98,7 @@ Como a mensagem possui um tempo para expirar, caso seja necessário uma maior qu
 Configurações:
 
 - identificador do projeto: `api-mendelics-dev`
-- identificador do subscriber: o mesmo que para produção
+- identificador do subscriber: `homolog-result-sub`
 - tópico: `homolog-result`
 
 ### Ambiente de produção
