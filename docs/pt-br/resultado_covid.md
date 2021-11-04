@@ -24,7 +24,9 @@ As mensagens contêm o seguinte dado estruturado em formato JSON.
 {
   "sample_code": "CODIGO",
   "type": "TIPO_DE_TESTE",
-  "result": "RESULTADO_TESTE"
+  "result": "RESULTADO_TESTE",
+  "name": "NOME_PACIENTE",
+  "birth_date": "DATA_NASCIMENTO_PACIENTE"
 }
 ```
 
@@ -36,6 +38,8 @@ A seguir apresentamos o valor de cada campo.
   - `positive` (caso positivo)
   - `negative` (caso negativo)
   - `non_compliance` (recusa do exame pela triagem por problema com a amostra).
+- `name`: O nome do paciente do exame.
+- `birth_date`: A data de nascimento do paciente do exame.
 
 ### Garantia de envio de mensagem
 
