@@ -39,7 +39,7 @@ A seguir apresentamos o valor de cada campo.
   - `negative` (caso negativo)
   - `non_compliance` (recusa do exame pela triagem por problema com a amostra).
 - `name`: O nome do paciente do exame.
-- `birth_date`: A data de nascimento do paciente do exame.
+- `birth_date`: A data de nascimento do paciente do exame, no formato `yyyy-mm-dd`.
 
 ### Garantia de envio de mensagem
 
